@@ -9,22 +9,51 @@
   </head>
   <body>
     <header>
-      <h1>Guess My Number!</h1>
-      <p class="between">(Between 1 and 20)</p>
-      <button class="btn again">Again!</button>
-      <div class="number">?</div>
+      <button class="btn btn-restart">Restart</button>
+      <div>
+        <h1 class="title">Guess the Number</h1>
+        <p class="between">- between 1 and 20 -</p>
+      </div>
     </header>
     <main>
-      <section class="left">
-        <input type="number" class="guess" />
-        <button class="btn check">Check!</button>
+      <section id="secScores">
+        <div class="score-table">
+          <p class="label-score">Tries</p>
+          <span class="score">20</span>
+        </div>
+
+        <div class="number">?</div>
+        <div class="score-table">
+          <p class="label-highscore">Best</p>
+          <span class="highscore">0</span>
+        </div>
       </section>
-      <section class="right">
-        <p class="message">Start guessing...</p>
-        <p class="label-score">💯 Score: <span class="score">20</span></p>
-        <p class="label-highscore">
-          🥇 Highscore: <span class="highscore">0</span>
-        </p>
+      <section id="secMessages">
+        <div class="message wiggle-a">Select a number</div>
+      </section>
+      <section class="">
+        <div id="buttonList">
+          <button class="btn btn-number">1</button>
+          <button class="btn btn-number">2</button>
+          <button class="btn btn-number">3</button>
+          <button class="btn btn-number">4</button>
+          <button class="btn btn-number">5</button>
+          <button class="btn btn-number">6</button>
+          <button class="btn btn-number">7</button>
+          <button class="btn btn-number">8</button>
+          <button class="btn btn-number">9</button>
+          <button class="btn btn-number">10</button>
+          <button class="btn btn-number">11</button>
+          <button class="btn btn-number">12</button>
+          <button class="btn btn-number">13</button>
+          <button class="btn btn-number">14</button>
+          <button class="btn btn-number">15</button>
+          <button class="btn btn-number">16</button>
+          <button class="btn btn-number">17</button>
+          <button class="btn btn-number">18</button>
+          <button class="btn btn-number">19</button>
+          <button class="btn btn-number">20</button>
+        </div>
       </section>
     </main>
     <script src="script.js"></script>
