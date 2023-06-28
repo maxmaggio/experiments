@@ -5,37 +5,36 @@ const messageEl = document.querySelector(".message");
 const numberEl = document.querySelector(".number");
 const scoreEl = document.querySelector(".score");
 const bodyEl = document.querySelector("body");
+const titleEl = document.querySelector("h1");
+const betweenEl = document.querySelector(".between");
+const restartBtn = document.querySelector(".btn-restart");
+let score, highscore, secretNumber, playing;
 
 const calcRandon = function () {
   return Math.trunc(Math.random() * 10) + 1;
 };
+const displayTitle = function (message) {
+  titleEl.textContent = message;
+};
 const displayMessage = function (message) {
   messageEl.textContent = message;
 };
-
-let score, highscore, secretNumber, playing;
-
 const init = function () {
   // reset all
   playing = true;
   score = 10;
   highscore = 0;
   secretNumber = calcRandon();
-
-  numberEl.textContent = "?";
-  numberEl.classList.remove("revealed");
-  // reset score
   scoreEl.textContent = score;
   // reset messages
-  document.querySelector("h1").textContent = "Select a number";
+  numberEl.textContent = "?";
+  numberEl.classList.remove("revealed");
+  displayTitle("Select a number");
   displayMessage("Select a number");
   // reset styles
   bodyEl.style.backgroundColor = "#DEF2F0";
-  document.querySelector(".between").classList.remove("hidden");
-  //log
-  // console.log(secretNumber);
-  // console.log(`score:` + score);
-  // console.log();
+  restartBtn.classList.remove("active");
+  betweenEl.classList.remove("hidden");
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].classList.remove("selected");
     buttons[i].classList.remove("correct");
@@ -44,7 +43,6 @@ const init = function () {
 
 init();
 
-// buttons
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function () {
     if (playing) {
@@ -54,15 +52,15 @@ for (let i = 0; i < buttons.length; i++) {
       messageEl.classList.toggle("wiggle-b");
 
       if (selectedNumber === secretNumber) {
-        console.log("yeaaa");
         displayMessage("Correct Number!");
         numberEl.textContent = secretNumber;
         numberEl.classList.add("revealed");
         bodyEl.style.backgroundColor = "#00C7BB";
         buttons[i].classList.add("correct");
+        displayTitle("You won! 🎉");
+        betweenEl.classList.add("hidden");
+        restartBtn.classList.add("active");
         //store highest score
-        document.querySelector("h1").textContent = "You won!";
-        document.querySelector(".between").classList.add("hidden");
         if (score > highscore) {
           highscore = score;
           document.querySelector(".highscore").textContent = score;
@@ -76,10 +74,11 @@ for (let i = 0; i < buttons.length; i++) {
             selectedNumber > secretNumber ? "Too high!" : "Too low!"
           );
         } else {
-          document.querySelector("h1").textContent = "Game Over";
-          document.querySelector(".between").classList.add("hidden");
+          displayTitle("Game Over");
+          betweenEl.classList.add("hidden");
           displayMessage("You can try again 💪!");
           bodyEl.style.backgroundColor = "#D1D1D1";
+          restartBtn.classList.add("active");
           scoreEl.textContent = 0;
           playing = false;
         }
@@ -89,4 +88,4 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 // restart
-document.querySelector(".btn-restart").addEventListener("click", init);
+restartBtn.addEventListener("click", init);

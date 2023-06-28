@@ -59,7 +59,8 @@ main {
   margin: 6%;
 }
 .score-table {
-  width: 80px;
+  font-size: 1.2rem;
+  width: 100px;
   height: 116px;
   padding: 16px;
   background-color: rgba(255, 255, 255, 0.2);
@@ -70,17 +71,6 @@ main {
 .score-table span {
   font-size: 4rem;
 }
-/* .left {
-  width: 52rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.right {
-  width: 52rem;
-  font-size: 2rem;
-} */
 
 /* ELEMENTS STYLE */
 h1 {
@@ -92,13 +82,13 @@ h1 {
   background: #414141;
   color: #ffffff;
   font-size: 6rem;
-  width: 15rem;
+  width: 12rem;
   padding: 3rem 0rem;
   text-align: center;
   border-radius: 16px;
 }
 .number.revealed {
-  background: #df4368;
+  background: #0066ff;
 }
 .between {
   font-size: 1.4rem;
@@ -137,7 +127,7 @@ h1 {
 }
 .btn-number.correct {
   border-radius: 100px;
-  background: #df4368;
+  background: #0066ff;
   box-shadow: 0px 2px 0px 0px rgba(8, 67, 64, 0.3) inset,
     0px 0px 8px 0px rgba(0, 0, 0, 0.25);
 }
@@ -146,6 +136,10 @@ h1 {
   padding: 4px 24px;
   border-radius: 48px;
   background: none;
+}
+.btn-restart.active {
+  background-color: #df4368;
+  color: #ffffff;
 }
 #secMessages {
   padding: 40px 0;
