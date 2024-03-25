@@ -1,3 +1,4 @@
 Here you'll find some experiments!
 
-- [Guess game] (/Guess number game).
+- [Guess game] (guess-number-game/index.html)  
+
